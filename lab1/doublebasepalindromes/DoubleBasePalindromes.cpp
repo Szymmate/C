@@ -5,24 +5,21 @@
 #include "DoubleBasePalindromes.h"
 
 using namespace std;
-
-bool is_palindrome(std::string palindrome_1){
-    string palindrome_2;
+bool is_palindrome(std::string palindrome_1) {
     int left;
     int right;
-    bool flag;
-    palindrome_2=palindrome_1;
-    for(left=0, right=palindrome_2.length()-1; left<=right; left++ ,right --){
-        if (palindrome_2[left] != palindrome_2[right]){
-            flag=false;
-            break;}
-        else{
-            flag= true;}
+    bool flag = true;
+    for (left = 0, right = palindrome_1.length() - 1; left <= right; left++, right--) {
+        if (palindrome_1[left] != palindrome_1[right]) {
+            flag = false;
+            break;
+        }
     }
-    return flag;}
+    return flag;
+}
 
 
-string decimal_to_binary(uint64_t decimal){
+string decimal_to_binary(int decimal){
     string bin;
     char holder=' ';
     while(decimal!=0){
@@ -33,19 +30,20 @@ string decimal_to_binary(uint64_t decimal){
 }
 
 uint64_t DoubleBasePalindromes(int max_vaule_exculsive){
-    uint64_t sum;
-    sum=0;
-    uint64_t decimal;
+    uint64_t sum=0;
+    int decimal;
     string binar;
     string str_decimal;
     bool flag_decimal;
     bool flag_binar;
     for (decimal=1; decimal<=max_vaule_exculsive; decimal++){
         str_decimal=to_string(decimal);
-        binar=decimal_to_binary(decimal);
         flag_decimal=is_palindrome(str_decimal);
-        flag_binar=is_palindrome(binar);
-        if (flag_decimal && flag_binar){
-            sum=sum+decimal;}
+        if (flag_decimal){
+            binar=decimal_to_binary(decimal);
+            flag_binar=is_palindrome(binar);
+            if (flag_binar)
+                sum=sum+decimal;
+        }
     }
     return sum;}
