@@ -67,9 +67,9 @@ TEST_F(MatrixTests, IsAbleToAddMatrices) {
 TEST_F(MatrixTests, AdditionWorksWithConstMatrices) {
   const Matrix m1{{1.0i, 0., 0.}, {0., 1.0i, 0.}, {0., 0., 1.0i}};
   const Matrix m2{{7. + 1.0i, 0., 0.}, {0., 1.0i, 8.}, {15. + 2.0i, 0. + 3.0i, 4. + 1.0i}};
-  //EXPECT_EQ("[7i2, 0i0, 0i0; 0i0, 0i2, 8i0; 15i2, 0i3, 4i2]", m1.Add(m2).Print());
-  //EXPECT_EQ("[0i1, 0i0, 0i0; 0i0, 0i1, 0i0; 0i0, 0i0, 0i1]", m1.Print());
-  //EXPECT_EQ("[7i1, 0i0, 0i0; 0i0, 0i1, 8i0; 15i2, 0i3, 4i1]", m2.Print());
+  EXPECT_EQ("[7i2, 0i0, 0i0; 0i0, 0i2, 8i0; 15i2, 0i3, 4i2]", m1.Add(m2).Print());
+  EXPECT_EQ("[0i1, 0i0, 0i0; 0i0, 0i1, 0i0; 0i0, 0i0, 0i1]", m1.Print());
+  EXPECT_EQ("[7i1, 0i0, 0i0; 0i0, 0i1, 8i0; 15i2, 0i3, 4i1]", m2.Print());
 }
 
 TEST_F(MatrixTests, IsAbleToSubtractMatrices) {
